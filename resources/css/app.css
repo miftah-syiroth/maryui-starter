@@ -10,7 +10,11 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-
+/* livewire powergrid */
+@source '../../app/Livewire/*Table.php';
+@source '../../app/Livewire/**/*Table.php';
+@source '../../vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php';
+@source '../../vendor/power-components/livewire-powergrid/resources/views/**/*.php';
 
 /**
     The lines above are intact.
