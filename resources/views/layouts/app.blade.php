@@ -16,7 +16,6 @@
 
     {{ $slot }}
 
-    {{--  TOAST area --}}
     <x-toast />
 
     @stack('scripts')

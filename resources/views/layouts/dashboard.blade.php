@@ -1,6 +1,5 @@
 <x-layouts::app :title="$title ?? null">
     <x-nav sticky full-width>
-
         <x-slot:brand>
             {{-- Drawer toggle for "main-drawer" --}}
             <label for="main-drawer" class="lg:hidden mr-3">
