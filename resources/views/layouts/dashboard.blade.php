@@ -1,7 +1,6 @@
 <x-layouts::app :title="$title ?? null">
     <x-nav sticky full-width>
         <x-slot:brand>
-            {{-- Drawer toggle for "main-drawer" --}}
             <label for="main-drawer" class="lg:hidden mr-3">
                 <x-icon name="o-bars-3" class="cursor-pointer" />
             </label>
@@ -27,12 +26,17 @@
 
             {{-- User --}}
             @if ($user = auth()->user())
-                <x-list-item :item="$user" value="name" sub-value="email" no-separator no-hover class="pt-2">
-                    <x-slot:actions>
-                        <x-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff"
-                            no-wire-navigate link="/logout" />
-                    </x-slot:actions>
-                </x-list-item>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <x-list-item :item="$user" value="name" sub-value="email" no-separator no-hover
+                        class="pt-2">
+                        <x-slot:actions>
+                            <x-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff"
+                                type="submit" />
+                        </x-slot:actions>
+                    </x-list-item>
+                </form>
 
                 <x-menu-separator />
             @endif
