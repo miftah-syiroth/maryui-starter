@@ -3,7 +3,7 @@
         <div class="card-body">
             <h1 class="card-title justify-center text-2xl">{{ __('Login') }}</h1>
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-2">
                 @csrf
 
                 <fieldset class="fieldset">
@@ -14,8 +14,7 @@
                     @error('email')
                         <span class="label text-error">{{ $message }}</span>
                     @enderror
-                    <p class="label">{{ __('Optional') }}</p>
-                </fieldset>
+                  </fieldset>
 
                 <fieldset class="fieldset">
                     <legend class="fieldset-legend">{{ __('Password') }}</legend>
@@ -24,17 +23,15 @@
                     @error('password')
                         <span class="label text-error">{{ $message }}</span>
                     @enderror
-                    <p class="label">{{ __('Optional') }}</p>
                 </fieldset>
 
                 <fieldset class="fieldset">
-                    <legend class="fieldset-legend">{{ __('Remember me') }}</legend>
-                    <label class="label cursor-pointer justify-start gap-2">
-                        <input type="checkbox" name="remember" class="checkbox checkbox-sm"
-                            {{ old('remember') ? 'checked' : '' }} />
-                        <span class="label-text">{{ __('Remember me') }}</span>
+                    <label class="label">
+                      <input type="checkbox" name="remember" class="checkbox checkbox-sm"
+                      {{ old('remember') ? 'checked' : '' }} />
+                      {{ __('Remember me') }}
                     </label>
-                </fieldset>
+                  </fieldset>
 
                 <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
             </form>
